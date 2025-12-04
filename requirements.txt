@@ -17,7 +17,7 @@ greenlet
 # For Bot Telegram
 # python-multipart
 # opencv-python-headless
-# ffmpeg-python
+ffmpeg-python
 # openai-whisper
 # pytesseract
 # Pillow
