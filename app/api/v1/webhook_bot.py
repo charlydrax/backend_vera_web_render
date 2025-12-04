@@ -9,7 +9,9 @@ router = APIRouter(prefix="/webhook", tags=["webhook"])
 
 @router.post("/")
 async def telegram_webhook(request: Request):
+    print("Webhook received")
     update = await request.json()
+    print(update)
 
     if "message" not in update:
         return {"ok": True}
@@ -21,6 +23,7 @@ async def telegram_webhook(request: Request):
     if "text" in message:
         user_text = message["text"]
         vera_output = await ask_vera(user_text)
+        print(vera_output)
         await send_message(chat_id, vera_output)
         return {"ok": True}
 
