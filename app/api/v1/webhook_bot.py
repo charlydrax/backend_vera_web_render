@@ -40,11 +40,16 @@ async def telegram_webhook(request: Request):
 
     # --- VIDÉO ---
     if "video" in message:
+        print("Video received")
         file_id = message["video"]["file_id"]
+        print(f"File ID: {file_id}")
         video_path = await download_telegram_file(file_id)
+        print(f"Video downloaded to: {video_path}")
 
         extracted_text = video_to_text(video_path)
+        print(f"Extracted text: {extracted_text}")
         vera_output = await ask_vera(extracted_text)
+        print(f"Vera output: {vera_output}")
 
         await send_message(chat_id, vera_output)
         return {"ok": True}
