@@ -18,6 +18,8 @@ greenlet
 # python-multipart
 # opencv-python-headless
 ffmpeg-python
-openai-whisper
+openai>=1.0.0
+python-telegram-bot>=21.0
+# openai-whisper
 # pytesseract
 # Pillow
