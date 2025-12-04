@@ -20,6 +20,8 @@ greenlet
 ffmpeg-python
 openai>=1.0.0
 python-telegram-bot>=21.0
+requests
+beautifulsoup4
 # openai-whisper
 # pytesseract
 # Pillow
