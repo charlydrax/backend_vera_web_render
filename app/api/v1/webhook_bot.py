@@ -25,13 +25,13 @@ async def telegram_webhook(request: Request):
         user_text = message["text"]
         vera_output = await ask_vera(user_text)
         print(vera_output)
-        text = message.text.strip()
-
-        if text.startswith("http") and is_video_url(text):
-            data = extract_video_metadata(text)
-            print(f"Extracted metadata: {data}")
-        else:
-            print("Not a video URL")
+        
+        # text = user_text.text.strip()
+        # if text.startswith("http") and is_video_url(text):
+        #     data = extract_video_metadata(text)
+        #     print(f"Extracted metadata: {data}")
+        # else:
+        #     print("Not a video URL")
         await send_message(chat_id, vera_output)
         return {"ok": True}
 
