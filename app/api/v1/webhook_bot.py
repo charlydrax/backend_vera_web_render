@@ -50,21 +50,28 @@ async def telegram_webhook(request: Request):
 
     # --- VIDÉO --- for future
     if "video" in message:
-        print("Video received ")
-        file_id = message["video"]["file_id"]
-        print(f"File ID: {file_id}")
-        video_path = await download_telegram_file(file_id)
-        print(f"Video downloaded to: {video_path}")
+        try:
+            print("Video received ")
+            file_id = message["video"]["file_id"]
+            print(f"File ID: {file_id}")
+            video_path = await download_telegram_file(file_id)
+            print(f"Video downloaded to: {video_path}")
 
-        summary = summarize_video(video_path)
+            summary = summarize_video(video_path)
 
-        # extracted_text = video_to_text(video_path)
-        print(f"Extracted text: {summary}")
+            # extracted_text = video_to_text(video_path)
+            print(f"Extracted text: {summary}")
 
-        vera_output = await ask_vera(summary)
-        print(f"Vera output: {vera_output}")
+            vera_output = await ask_vera(summary)
+            print(f"Vera output: {vera_output}")
 
-        await send_message(chat_id, vera_output)
-        return {"ok": True}
+            await send_message(chat_id, vera_output)
+            return {"ok": True}
+        except Exception as e:
+            print("Erreur lors du traitement vidéo :", e)
+            await send_message(
+                chat_id,
+                "❌ Désolé, je n'ai pas pu analyser cette vidéo. Le fichier semble invalide ou illisible.")
+            
 
     return {"ok": True}
