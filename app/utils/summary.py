@@ -34,4 +34,4 @@ def summarize_video(video_path: str) -> str:
         messages=[{"role": "user", "content": prompt}],
     )
 
-    return completion.choices[0].message["content"]
+    return completion.choices[0].message.content
