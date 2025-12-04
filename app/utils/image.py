@@ -1,5 +1,5 @@
 # import pytesseract
-from PIL import Image
+# from PIL import Image
 
 def image_to_text(image_path):
     img = Image.open(image_path)
