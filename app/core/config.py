@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     SECRET_KEY: str | None = None
     VERA_USER_ID: str | None = None
     TELEGRAM_TOKEN: str | None = None
-    # OPENAI_API_KEY: str | None = None
+    OPENAI_API_KEY: str | None = None
 
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60*24
 
