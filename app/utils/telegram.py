@@ -1,7 +1,9 @@
 import httpx
 import os
+from app.core.config import settings
 
-TOKEN = os.getenv("TELEGRAM_TOKEN")
+
+TOKEN = settings.TELEGRAM_TOKEN
 API = f"https://api.telegram.org/bot{TOKEN}"
 
 async def send_message(chat_id, text):
