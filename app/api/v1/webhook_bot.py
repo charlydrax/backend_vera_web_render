@@ -27,31 +27,31 @@ async def telegram_webhook(request: Request):
         await send_message(chat_id, vera_output)
         return {"ok": True}
 
-    # --- PHOTO ---
-    if "photo" in message:
-        file_id = message["photo"][-1]["file_id"]
-        image_path = await download_telegram_file(file_id)
+    # --- PHOTO --- for future
+    # if "photo" in message:
+    #     file_id = message["photo"][-1]["file_id"]
+    #     image_path = await download_telegram_file(file_id)
 
-        extracted_text = image_to_text(image_path)
-        vera_output = await ask_vera(extracted_text)
+    #     extracted_text = image_to_text(image_path)
+    #     vera_output = await ask_vera(extracted_text)
 
-        await send_message(chat_id, vera_output)
-        return {"ok": True}
+    #     await send_message(chat_id, vera_output)
+    #     return {"ok": True}
 
-    # --- VIDÉO ---
-    if "video" in message:
-        print("Video received")
-        file_id = message["video"]["file_id"]
-        print(f"File ID: {file_id}")
-        video_path = await download_telegram_file(file_id)
-        print(f"Video downloaded to: {video_path}")
+    # --- VIDÉO --- for future
+    # if "video" in message:
+    #     print("Video received")
+    #     file_id = message["video"]["file_id"]
+    #     print(f"File ID: {file_id}")
+    #     video_path = await download_telegram_file(file_id)
+    #     print(f"Video downloaded to: {video_path}")
 
-        extracted_text = video_to_text(video_path)
-        print(f"Extracted text: {extracted_text}")
-        vera_output = await ask_vera(extracted_text)
-        print(f"Vera output: {vera_output}")
+    #     extracted_text = video_to_text(video_path)
+    #     print(f"Extracted text: {extracted_text}")
+    #     vera_output = await ask_vera(extracted_text)
+    #     print(f"Vera output: {vera_output}")
 
-        await send_message(chat_id, vera_output)
-        return {"ok": True}
+    #     await send_message(chat_id, vera_output)
+    #     return {"ok": True}
 
     return {"ok": True}
