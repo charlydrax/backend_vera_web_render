@@ -50,7 +50,7 @@ async def telegram_webhook(request: Request):
 
     # --- VIDÉO --- for future
     if "video" in message:
-        print("Video received")
+        print("Video received ")
         file_id = message["video"]["file_id"]
         print(f"File ID: {file_id}")
         video_path = await download_telegram_file(file_id)
