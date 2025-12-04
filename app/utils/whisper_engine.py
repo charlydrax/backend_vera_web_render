@@ -9,5 +9,5 @@ def transcribe_audio(audio_path: str) -> str:
             model="whisper-1",
             file=audio_file
         )
-    context =" A partir de tes connaissances et de tes sources, dit moi si la vidéo ci dessous est réel ou si c'est une fausse information"
-    return transcript.text
+    context =f" A partir de tes connaissances et de tes sources, dit moi si la vidéo ci dessous est réel ou si c'est une fausse information : {transcript.text}"
+    return context

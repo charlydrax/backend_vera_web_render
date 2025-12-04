@@ -17,6 +17,7 @@ async def download_telegram_file(file_id):
     async with httpx.AsyncClient() as client:
         # Récupérer infos du fichier
         r = await client.get(f"{API}/getFile?file_id={file_id}")
+        print(f"Get file response: {r.json()}")
         file_path = r.json()["result"]["file_path"]
 
         # Télécharger le fichier
