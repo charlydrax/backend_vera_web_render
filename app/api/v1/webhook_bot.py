@@ -29,7 +29,7 @@ async def telegram_webhook(request: Request):
         print(vera_output)
         
         # text = user_text.text.strip()
-        if user_text.startswith("http") and is_video_url(user_text):
+        if user_text.startswith("http"):
             data = extract_video_metadata(user_text)
             print(f"Extracted metadata: {data}")
         else:
