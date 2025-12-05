@@ -6,7 +6,7 @@ async def ask_vera(query: str, user_id="anon"):
     async with httpx.AsyncClient(timeout=30) as client:
         payload = {
             "userId": f"user_{user_id}",
-            "query": query
+            "query": f"Les informations suivantes provienne d'une vidéo, est ce qu'elles peuvent être prouvé : {query}"
         }
         headers = {
             "X-API-Key": settings.VERA_API_KEY,
